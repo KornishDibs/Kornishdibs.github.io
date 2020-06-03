@@ -296,8 +296,8 @@ body {font-family: Arial;}
             </select></div>
             <div class="box a">Build date     :</div><div><input type="text" id="C1Date" name="C1Date"></div>
             <div class="box a">Size m2        :</div><div><input type="text" id="C1Size" name="C1Size"></div>
-            <div class="box a">Sold Price  =  £   </div><div><input type="text" id="C1Sold" name="C1Sold"></div>
-            <div class="box a">Adjusted Value = £</div><div><input type="text" id="Av1" name="av1"></div>
+            <div class="box a">Sold Price  =  Â£   </div><div><input type="text" id="C1Sold" name="C1Sold"></div>
+            <div class="box a">Adjusted Value = Â£</div><div><input type="text" id="Av1" name="av1"></div>
             <div class="box a">Over 6 Months:</div><div><input type="checkbox" id="C1over" name="C1over">
             <select name="C1Market" id="C1Market">
                 <option>Rise</option>
@@ -366,8 +366,8 @@ body {font-family: Arial;}
         </select></div>
             <div class="box a">Build date:</div><div><input type="text" id="C2Date" name="C2Date"></div>
             <div class="box a">Size m2:</div><div><input type="text" id="C2Size" name="C2Size"></div>
-            <div class="box a">Sold Price  =  £   </div><div><input type="text" id="C2Sold" name="C2Sold"></div>
-            <div class="box a">Adjusted Value = £</div><div><input type="text" id="Av2" name="av2"></div>
+            <div class="box a">Sold Price  =  Â£   </div><div><input type="text" id="C2Sold" name="C2Sold"></div>
+            <div class="box a">Adjusted Value = Â£</div><div><input type="text" id="Av2" name="av2"></div>
             <div class="box a">Over 6 Months:</div><div><input type="checkbox" id="C2over" name="C2over">
                     <select name="C2Market" id="C2Market">
                 <option>Rise</option>
@@ -435,8 +435,8 @@ body {font-family: Arial;}
         </select></div>
             <div class="box a">Build date:</div><div><input type="text" id="C3Date" name="C3Date"></div>
             <div class="box a">Size m2:</div><div><input type="text" id="C3Size" name="C3Size"></div>
-            <div class="box a">Sold Price = £    </div><div><input type="text" id="C3Sold" name="C3Sold"></div>
-            <div class="box a">Adjusted Value = £</div><div><input type="text" id="Av3" name="av3"></div>
+            <div class="box a">Sold Price = Â£    </div><div><input type="text" id="C3Sold" name="C3Sold"></div>
+            <div class="box a">Adjusted Value = Â£</div><div><input type="text" id="Av3" name="av3"></div>
             <div class="box a">Over 6 Months:</div><div><input type="checkbox" id="C3over" name="C3over">
             <select name="C3Market" id="C3Market">
                 <option>Rise</option>
@@ -636,7 +636,7 @@ function outputText(){
         //Rental paragraph
         
         if(rentalpara.checked === true ){
-            rentalTxt = "\n\nConsideration given to matrix differences and comp notes as above:\nComp4 - ARV £  ,\nComp5 - ARV £  ,\nComp6 - ARV £  .\nAdjusted Valuation Rental Range £ - £ ,\nERV of £       is justified. ";
+            rentalTxt = "\n\nConsideration given to matrix differences and comp notes as above:\nComp4 - ARV Â£  ,\nComp5 - ARV Â£  ,\nComp6 - ARV Â£  .\nAdjusted Valuation Rental Range Â£ - Â£ ,\nERV of Â£       is justified. ";
         }
         
         if (agentName !== ""){ 
@@ -724,9 +724,9 @@ function outputText(){
         //Is value within range
         
         if (SPValue < MinAV() || SPValue > MaxAV()){
-            ValueOutput = " \nEV £"+SPValue+" not justified. \nMV £   within range and justified";
+            ValueOutput = " \nEV Â£"+SPValue+" not justified. \nMV Â£   within range and justified";
         }else{
-        ValueOutput = "\nMV £"+SPValue+"   within range and justified";
+        ValueOutput = "\nMV Â£"+SPValue+"   within range and justified";
         }
 	
         if(mundic.checked === true ){
@@ -746,7 +746,7 @@ function outputText(){
         
         /* Concatonate all lines together for outout*/
         
-	outputTxt = firstLineTxt+agentoutputTxt+ DesTxt+mixedTxt+secondLineTxt+"\nC1 - "+C1OutputTxt+C1OverTxt+" - AV1 = £"+Av1Txt+",\n\nC2 - "+C2OutputTxt+C2OverTxt+" - AV2 = £"+Av2Txt+",\n\nC3 - "+C3OutputTxt+C3OverTxt+" - AV3 = £"+Av3Txt+ ",  \n\nVal Range = £"+ MinAV()+" to £"+MaxAV()+ValueOutput+mundicTxt+rentalTxt;
+	outputTxt = firstLineTxt+agentoutputTxt+ DesTxt+mixedTxt+secondLineTxt+"\nC1 - "+C1OutputTxt+C1OverTxt+" - AV1 = Â£"+Av1Txt+",\n\nC2 - "+C2OutputTxt+C2OverTxt+" - AV2 = Â£"+Av2Txt+",\n\nC3 - "+C3OutputTxt+C3OverTxt+" - AV3 = Â£"+Av3Txt+ ",  \n\nVal Range = Â£"+ MinAV()+" to Â£"+MaxAV()+ValueOutput+mundicTxt+rentalTxt;
 	document.getElementById("outputtxtresult").value = outputTxt;
         
         
