@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  
+
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #A9CCE3;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #2980B9;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  
+  border-top: none;
+}
+
+/* Style the subtab */
+.subtab {
+  overflow: hidden;
+
+}
+
+/* Style the buttons inside the tab */
+.subtab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.subtab button:hover {
+  background-color: #A9CCE3;
+}
+
+/* Create an active/current tablink class */
+.subtab button.active {
+  background-color: #2980B9;
+}
+
+/* Style the tab content */
+.subtabcontent {
+  display: none;
+  
+  border-top: none;
+}
+.flex-container {
+  display: flex;
+  
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 200px; 
+  margin: 5px;
+  padding: 5px;
+  font-size: 15px;
+  justify-content:flex-start;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  
+  color: #444;
+  background-color:lightblue;
+}
+
+.box {
+  background-color: lightblue;
+  color: black;
+  border-radius: 5px;
+  
+  font-size: 100%;
+}
+
+.longbox {
+  background-color: lightblue;
+  color: black;
+  border-radius: 5px;
+  grid-template-columns: 420px ;
+  font-size: 100%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'SiteNotes')">Site Notes</button>
+  <button class="tablinks" onclick="openCity(event, 'Subject')">Subject</button>
+  <button class="tablinks" onclick="openCity(event, 'C1')">C1</button>
+  <button class="tablinks" onclick="openCity(event, 'C2')">C2</button>
+  <button class="tablinks" onclick="openCity(event, 'C3')">C3</button>
+  <button class="tablinks" onclick="openCity(event, 'Misc')">Misc</button>
+</div>
+
+<div id="SiteNotes" class="tabcontent">
+    <div class="longbox">
+    <div class="wrapper">
+        <div class="box a">Tenure:</div><div></div>
+        <div class="box a">Freehold:</div><div ><input type="radio" id="tenure1" name="tenure" value="Assumed FH"></div>
+        <div class="box b">Leasehold:</div><div><input type="radio" id="tenure2" name="tenure" value="LH"></div>
+        <div class="box a">Unexpired Term:</div><div><input name = "tenure3" type="text" id="tenure3"></div>
+        <div class="box a">-------------------------------------</div><div class="box a">-----------------------</div>
+        <div class="box a">Area</div><div></div>
+        <div class="box a">EPC:</div><div><input type="text"  id="floor1" name = "floor"  >
+            </br>
+            <input type="radio" id="floor2" name="floor" >GIA
+            <input type="radio" id="floor3" name="floor" >10%
+            <input type="radio" id="floor4" name="floor" >15%</div>
+        <div class="box a">Floorplan</div><div><input type="radio" id="floor5" name="floor" ></div>
+        <div class="box a">-------------------------------------</div><div class="box a">-----------------------</div>
+        <div class="box a">Built:</div><div><input type="text"  id="built1" name = "built"  ></div>
+        <div class="box a">Price data</div><div></div>
+        <div class="box a">Agents name:</div><div><input type="text" id="priceName" name="priceName"></div>
+        <div class="box a">or HMLR</div><div><input type="checkbox" id="priceHMLR" name="priceHMLR"></div>
+        <div class="box a">-------------------------------------</div><div class="box a">-----------------------</div>
+        <div class="box a">Additional attributes:</div><div></div>
+        <div class="box a">No Parking</div><div><input type="radio" id="myCheck1" name= "parking" value="No Parking" ></div>
+        <div class="box a">Parking Space</div><div><input type="radio" id="myCheck2" name= "parking" value="Parking Space" ></div>
+        <div class="box a">Single Garage</div><div><input type="radio" id="myCheck3" name= "parking" value="Single Garage" ></div>
+        <div class="box a">Double garage</div><div><input type="radio" id="myCheck4" name= "parking" value="Double Garage" ></div>
+        <div class="box a">Conservatory</div><div><input type="checkbox" id="conservatory" name= "conservatory" value="Conservatory" ></div>
+        <div class="box a">#Acres</div><div><input type="text" id="acresInput" name="acresInput"></div>
+        <div class="box a">Ex LA</div><div><input type="checkbox" id="xla" name= "xla" value="xla" ></div>
+        <div class="box a"><button onclick="myFunction()">Submit</button></div><div><button onclick="myClearFunction()">Clear Selection</button></div>
+        
+        
+        <div class="box a"></div><div></div>
+    </div>
+    </div>
+    <textarea  id="txtresult" cols="60" rows="10" name="SNoutput" value=""></textarea>
+
+     
+
+    
+	
+	
+</div>
+    
+<div id="Subject" class="tabcontent">
+        
+        
+        
+        <script>document.write.innerHTML=(displayDate());//document.getElementById("MyEdit").innerHTML = displayDate();
+        function displayDate()
+{
+        today=new Date();
+        var month,day,year;
+        year=today.getFullYear();
+        month=month=today.getMonth()+1;
+        date=today.getDate();
+        if((month-6)<=0){
+            year=today.getFullYear()-1;
+            month = month + 6;
+        }else{
+            year=today.getFullYear();
+            month = month-6;
+        }
+        switch (month){
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (date == 31){
+                    date = 30;
+                }
+                break;
+            case 2:
+                if (year %4 == 0){
+                    
+                    if (date > 29){
+                        date = 29;
+                    }
+                }
+                if (year %4 != 0){
+                    
+                    if (date>28){
+                        date=28;
+                    }
+                }
+        }
+        var backdate = "6 months ago = " + date + "/" + month + "/" + year;
+        
+        document.write(backdate);
+}</script>
+        <h1>Subject:</h1>
+        <div class="wrapper">
+            <div class="box a">Build style</div><div><select name="attach" id="SPattach" >
+                <option value="-1">Flat</option>
+                <option value='0'>Mid Terrace</option>
+                <option value="1">End Terrace</option>
+                <option value="2">Semi Detached</option>
+                <option value="3">Detached</option>
+
+                </select>
+            </div>
+            <div class="box a">Build date:</div><div><input type="text" id="SPDate" name="SPDate"></div>
+            <div class="box a">Size m2 GEA:</div><div><input type="text" id="SPSize" name="SPSize"></div>
+            <div class="box a">EV/MV:</div><div><input type="text" id="SPValue" name="SPValue"></div>
+            <div class="box a">Inspection Type:</div>
+                </br>
+                <input type="radio" id="ValType1" name="Val" >Physical
+                <input type="radio" id="ValType2" name="Val" >Remote
+        </div>
+            
+        
+        
+    </div>
+
+<div  id="C1" class="tabcontent">
+            <script>document.write.innerHTML=(displayDate());//document.getElementById("MyEdit").innerHTML = displayDate();
+        function displayDate()
+{
+        today=new Date();
+        var month,day,year;
+        year=today.getFullYear();
+        month=month=today.getMonth()+1;
+        date=today.getDate();
+        if((month-6)<=0){
+        year=today.getFullYear()-1;
+        month = month + 6;
+    }else{
+        year=today.getFullYear();
+        month = month-6;
+    }
+    switch (month){
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (date == 31){
+                    date = 30;
+                }
+                break;
+            case 2:
+                if (year %4 == 0){
+                    
+                    if (date > 29){
+                        date = 29;
+                    }
+                }
+                if (year %4 != 0){
+                    
+                    if (date>28){
+                        date=28;
+                    }
+                }
+        }
+        var backdate = "6 months ago = " + date + "/" + month + "/" + year;
+        
+        document.write(backdate);
+}</script>
+	<h1>Comp 1:</h1>
+        
+        <div class="wrapper">
+            <div class="box a">Detachment :</div><div><select name="attach" id="C1attach">
+            <option value="-1">Flat</option>
+            <option value='0'>Mid Terrace</option>
+            <option value="1">End Terrace</option>
+            <option value="2">Semi Detached</option>
+            <option value="3">Detached</option>
+
+            </select></div>
+            <div class="box a">Build date     :</div><div><input type="text" id="C1Date" name="C1Date"></div>
+            <div class="box a">Size m2        :</div><div><input type="text" id="C1Size" name="C1Size"></div>
+            <div class="box a">Sold Price  =  £   </div><div><input type="text" id="C1Sold" name="C1Sold"></div>
+            <div class="box a">Adjusted Value = £</div><div><input type="text" id="Av1" name="av1"></div>
+            <div class="box a">Over 6 Months:</div><div><input type="checkbox" id="C1over" name="C1over">
+            <select name="C1Market" id="C1Market">
+                <option>Rise</option>
+                <option>Slight Rise</option>
+                <option>Static</option>
+                <option>Slight Fall</option>
+                <option>Fall</option>
+            </select></div>
+        </div>
+	
+</div>
+
+<div  id="C2" class="tabcontent">
+            <script>document.write.innerHTML=(displayDate());//document.getElementById("MyEdit").innerHTML = displayDate();
+        function displayDate()
+{
+        today=new Date();
+        var month,day,year;
+        year=today.getFullYear();
+        month=month=today.getMonth()+1;
+        date=today.getDate();
+        if((month-6)<=0){
+        year=today.getFullYear()-1;
+        month = month + 6;
+    }else{
+        year=today.getFullYear();
+        month = month-6;
+    }
+    switch (month){
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (date == 31){
+                    date = 30;
+                }
+                break;
+            case 2:
+                if (year %4 == 0){
+                    
+                    if (date > 29){
+                        date = 29;
+                    }
+                }
+                if (year %4 != 0){
+                    
+                    if (date>28){
+                        date=28;
+                    }
+                }
+        }
+        var backdate = "6 months ago = " + date + "/" + month + "/" + year;
+        
+        document.write(backdate);
+}</script>
+	<h1>Comp 2:</h1>
+        
+        <div class="wrapper">
+            <div class="box a">Detachment:</div><div><select name="attach" id="C2attach">
+            <option value="-1">Flat</option>
+            <option value='0'>Mid Terrace</option>
+            <option value="1">End Terrace</option>
+            <option value="2">Semi Detached</option>
+            <option value="3">Detached</option>
+
+        </select></div>
+            <div class="box a">Build date:</div><div><input type="text" id="C2Date" name="C2Date"></div>
+            <div class="box a">Size m2:</div><div><input type="text" id="C2Size" name="C2Size"></div>
+            <div class="box a">Sold Price  =  £   </div><div><input type="text" id="C2Sold" name="C2Sold"></div>
+            <div class="box a">Adjusted Value = £</div><div><input type="text" id="Av2" name="av2"></div>
+            <div class="box a">Over 6 Months:</div><div><input type="checkbox" id="C2over" name="C2over">
+                    <select name="C2Market" id="C2Market">
+                <option>Rise</option>
+                <option>Slight Rise</option>
+                <option>Static</option>
+                <option>Slight Fall</option>
+                <option>Fall</option>
+            </select></div>
+        </div>
+        
+</div>
+
+<div  id="C3" class="tabcontent">
+            <script>document.write.innerHTML=(displayDate());//document.getElementById("MyEdit").innerHTML = displayDate();
+        function displayDate()
+{
+        today=new Date();
+        var month,day,year;
+        year=today.getFullYear();
+        month=month=today.getMonth()+1;
+        date=today.getDate();
+        if((month-6)<=0){
+        year=today.getFullYear()-1;
+        month = month + 6;
+    }else{
+        year=today.getFullYear();
+        month = month-6;
+    }
+    switch (month){
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (date == 31){
+                    date = 30;
+                }
+                break;
+            case 2:
+                if (year %4 == 0){
+                    
+                    if (date > 29){
+                        date = 29;
+                    }
+                }
+                if (year %4 != 0){
+                    
+                    if (date>28){
+                        date=28;
+                    }
+                }
+        }
+        var backdate = "6 months ago = " + date + "/" + month + "/" + year;
+        
+        document.write(backdate);
+}</script>
+	<h1>Comp 3:</h1>
+        <div class="wrapper">
+            <div class="box a">Detachment:</div><div><select name="attach" id="C3attach">
+            <option value="-1">Flat</option>
+            <option value='0'>Mid Terrace</option>
+            <option value="1">End Terrace</option>
+            <option value="2">Semi Detached</option>
+            <option value="3">Detached</option>
+            
+        </select></div>
+            <div class="box a">Build date:</div><div><input type="text" id="C3Date" name="C3Date"></div>
+            <div class="box a">Size m2:</div><div><input type="text" id="C3Size" name="C3Size"></div>
+            <div class="box a">Sold Price = £    </div><div><input type="text" id="C3Sold" name="C3Sold"></div>
+            <div class="box a">Adjusted Value = £</div><div><input type="text" id="Av3" name="av3"></div>
+            <div class="box a">Over 6 Months:</div><div><input type="checkbox" id="C3over" name="C3over">
+            <select name="C3Market" id="C3Market">
+                <option>Rise</option>
+                <option>Slight Rise</option>
+                <option>Static</option>
+                <option>Slight Fall</option>
+                <option>Fall</option>
+            </select></div>
+        </div>
+        
+</div>
+
+	
+<div id="Misc" class="tabcontent">
+    
+    
+	<div style = "background-color:lightblue;  float:left;line-height: 17px;">
+		<!--<p>
+                    Area: <input type="text" id="area1" name="area">
+    			<button onclick="areaCalc()">Calculate</button>			
+		</p>-->
+                
+		<p><input type="checkbox" id="mixed" name="mixed">
+		comparables are from mixed housing stock, hence the variance. <br/>
+                These have been considered and are reflected within the adjusted valuation range. 
+		</p>
+                <p><input type="checkbox" id="rentalpara" name="rentalpara">Add Adjusted Valuation Rental Range paragraph.
+                </p>
+                <p>Sold price confirmed by <input name = "agentName" type="text" id="agentName">  at agents.</p>
+                <p>Valuation assumes satisfactory Mining (<input type="checkbox" id="mundic" name="mundic">and Mundic )reports.</p>
+                <button onclick="outputText()">Output</button>
+                
+		
+                <p></p>
+		
+    <textarea name="output" cols="85" rows="30" id="outputtxtresult"></textarea>
+    <p></p>
+    <button onclick="copyText()">Copy to clipboard</button>
+    <p style="color:lightslategrey">Version 1.02</p>
+	</div
+></div>
+
+
+<script>
+    
+function copyText(){
+        var copyText = document.getElementById("outputtxtresult");
+
+        /* Select the text field */
+        copyText.select();
+        //copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+}
+
+function displayDate()
+{
+        today=new Date();
+        var month,day,year;
+        year=today.getFullYear();
+        month=today.getMonth();
+        date=today.getDate();
+        if((month-6)<=0);
+        year=today.getFullYear()-1;
+        var backdate = new Date(year,month-6,date);
+        document.write(backdate);
+}
+
+function outputText(){
+        var flag1 = false;
+        var flag2 = false;
+        var flag3 = false; 
+        
+        var attach1Output ="";
+        var attach2Output ="";
+        var attach3Output ="";
+        
+        var C1OverTxt = "";
+        var C2OverTxt = "";
+        var C3OverTxt = "";
+        
+        C1OutputTxt = " but chosen as similar in \n";
+        C2OutputTxt = " but chosen as similar in \n";
+        C3OutputTxt = " but chosen as similar in \n";
+        
+        var mixedTxt = "";
+        var rentalTxt = "";
+        
+        var SPValue = parseInt(document.getElementById("SPValue").value, 10);
+        
+        var SPDateStr = document.getElementById("SPDate").value;
+        var C1DateStr = document.getElementById("C1Date").value;
+        var C2DateStr = document.getElementById("C2Date").value;
+        var C3DateStr = document.getElementById("C3Date").value;
+        
+        var SPDate = parseInt(SPDateStr, 10);
+        var C1Date = parseInt(C1DateStr, 10);
+        var C2Date = parseInt(C2DateStr, 10);
+        var C3Date = parseInt(C3DateStr, 10);
+        
+        var SPSizeStr = document.getElementById("SPSize").value;
+        var C1SizeStr = document.getElementById("C1Size").value;
+        var C2SizeStr = document.getElementById("C2Size").value;
+        var C3SizeStr = document.getElementById("C3Size").value;
+        
+        var SPSize = parseInt(SPSizeStr, 10);
+        var C1Size = parseInt(C1SizeStr, 10);
+        var C2Size = parseInt(C2SizeStr, 10);
+        var C3Size = parseInt(C3SizeStr, 10);
+        
+	var Av1Txt = document.getElementById("Av1").value;
+	var Av2Txt = document.getElementById("Av2").value;
+	var Av3Txt = document.getElementById("Av3").value;
+        
+        var Av1Int = parseInt(document.getElementById("Av1").value, 10);
+        var Av2Int = parseInt(document.getElementById("Av2").value, 10);
+        var Av3Int = parseInt(document.getElementById("Av3").value, 10);
+        
+        var MVBox1 = document.getElementById("ValType1");
+        var RVBox2 = document.getElementById("ValType2");
+        
+                
+        var MVTypeTxt = "This SCT was prepared during the COVID-19 outbreak and is based upon transactions completed prior to and during the COVID-19 emergency.\n\n";
+	var RVTypeTxt = "This SCT was prepared during the COVID-19 outbreak and is based upon transactions completed prior to the COVID-19 emergency. The report was completed via Remote Valuation and, therefore, the property was not inspected physically.\n\n";
+        var firstLineTxt = "";
+        var DesTxt = "Subject property additional description:  \n";
+        var agentoutputTxt = '';
+        var secondLineTxt = "\nConsideration given to matrix differences and comp notes above:\n";
+        
+        var SPattach = document.getElementById("SPattach").value;
+        var C1attach = document.getElementById("C1attach").value;
+        var C2attach = document.getElementById("C2attach").value;
+        var C3attach = document.getElementById("C3attach").value;
+        
+        var C1Over = document.getElementById("C1over").value;
+        var C2Over = document.getElementById("C2over").value;
+        var C3Over = document.getElementById("C3over").value;
+        
+        var C1SoldInt = parseInt(document.getElementById("C1Sold").value, 10);
+        var C2SoldInt = parseInt(document.getElementById("C2Sold").value, 10);
+        var C3SoldInt = parseInt(document.getElementById("C3Sold").value, 10);
+        
+        var agentName = document.getElementById("agentName").value;
+        var mundicTxt='';
+                     
+        // attachment check against Subject
+        if (SPattach >C1attach){attach1Output = "Lesser detachment, "; flag1 = true;}
+        if (SPattach <C1attach){attach1Output = "Greater detachment, "; flag1 = true;}
+        if (SPattach >C2attach){attach2Output = "Lesser detachment, "; flag2 = true;}
+        if (SPattach <C2attach){attach2Output = "Greater detachment, "; flag2 = true;}
+        if (SPattach >C3attach){attach3Output = "Lesser detachment, "; flag3 = true;}
+        if (SPattach <C3attach){attach3Output = "Greater detachment, "; flag3 = true;}
+        
+        //age check +/- 30 years
+       
+
+       
+       
+       if (C1Date < (SPDate - 30) || C1Date > (SPDate + 30)) {
+       //if (C1Date < C1DateLow || C1Date > C1DateHigh) {
+            C1OutputTxt = "differing construction age , " + C1OutputTxt;
+            flag1 = true;
+        }
+        if (C2Date < (SPDate - 30) || C2Date > (SPDate + 30)) {
+       //if (C2Date < C1DateLow || C1Date > C2DateHigh) {
+            C2OutputTxt = "differing construction age , " + C2OutputTxt;
+            flag2 = true;
+        }
+        if (C3Date < (SPDate - 30) || C3Date > (SPDate + 30)) {
+       //if (C3Date < C1DateLow || C1Date > C3DateHigh) {
+            C3OutputTxt = "differing construction age , " + C3OutputTxt;
+            flag3 = true;
+        }
+        
+        // Size check +/- 20%
+        
+        if (C1Size < (SPSize*0.8)||C1Size > (SPSize * 1.2)){
+            C1OutputTxt = "differing size, " + C1OutputTxt;
+            flag1 = true;
+        }
+        if (C2Size < (SPSize*0.8)||C2Size > (SPSize * 1.2)){
+            C2OutputTxt = "differing size, " + C2OutputTxt;
+            flag2 = true;
+        }
+        if (C3Size < (SPSize*0.8)||C3Size > (SPSize * 1.2)){
+            C3OutputTxt = "differing size, " + C3OutputTxt;
+            flag3 = true;
+        }
+        
+        // include Mixed comparables paragraph
+        
+        if(mixed.checked === true){
+            mixedTxt = "comparables are from mixed housing stock, hence the variance. These have been considered and are reflected within the adjusted valuation range.";
+        }
+        
+        //Rental paragraph
+        
+        if(rentalpara.checked === true ){
+            rentalTxt = "\n\nConsideration given to matrix differences and comp notes as above:\nComp4 - ARV £  ,\nComp5 - ARV £  ,\nComp6 - ARV £  .\nAdjusted Valuation Rental Range £ - £ ,\nERV of £       is justified. ";
+        }
+        
+        if (agentName !== ""){ 
+	agentoutputTxt = "Sold price confirmed by "+agentName+"  at selling agents.\n";
+        }
+        
+        // Comp over 6 month check 
+        
+        if (C1over.checked === true){
+            C1OverTxt = "Comp over 6 months in age "+ document.getElementById("C1Market").value+" market conditions since sale considered.";
+        }
+        
+        if (C2over.checked === true){
+            C2OverTxt = "Comp over 6 months in age "+ document.getElementById("C2Market").value+" market conditions since sale considered.";
+        }
+        
+        if (C3over.checked === true){
+            C3OverTxt = "Comp over 6 months in age "+ document.getElementById("C3Market").value+" market conditions since sale considered.";
+        }
+        
+        // Check for Comparable being outside of 10% of sold subject price 
+        Av1Max = C1SoldInt*1.1;
+        Av1Min = C1SoldInt*0.9;
+        Av2Max = C2SoldInt*1.1;
+        Av2Min = C2SoldInt*0.9;
+        Av3Max = C3SoldInt*1.1;
+        Av3Min = C3SoldInt*0.9;
+        
+        MoreTxt = "This property has sold for over 10% more than the subject but it has been used with appropriate adjustments to reflect the differences highlighted. It is considered to be the best evidence available and more relevant than other sales within 10%.";
+        LessTxt = "This property has sold for over 10% less than the subject but it has been used with appropriate adjustments to reflect the differences highlighted. It is considered to be the best evidence available and more relevant than other sales within 10%.";
+        
+        switch (true){
+            case (SPValue<Av1Max && SPValue>Av1Min):
+               break;     
+            case (SPValue>Av1Min):
+                C1OverTxt = C1OverTxt+LessTxt;
+                break;
+             
+            case (SPValue<Av1Max):
+                C1OverTxt = C1OverTxt+MoreTxt;
+                break;      
+        }
+        
+        switch (true){
+            case (SPValue<Av2Max && SPValue>Av2Min):
+               break;   
+            case (SPValue>Av2Min):
+                C2OverTxt = C2OverTxt+LessTxt;
+                break;
+            case (SPValue<Av2Max):
+                C2OverTxt = C2OverTxt+MoreTxt;
+                break;      
+        }
+        switch (true){
+            case (SPValue<Av3Max && SPValue>Av3Min):
+               break;   
+            case (SPValue>Av3Min):
+                C3OverTxt = C3OverTxt+LessTxt;
+                break;
+            case (SPValue<Av3Max):
+                C3OverTxt = C3OverTxt+MoreTxt;
+                break;      
+        }
+        
+       
+       
+        
+        if (flag1 === true) {
+            C1OutputTxt = attach1Output + C1OutputTxt;
+        }else if (flag1 !== true){
+            C1OutputTxt = " ";
+        }
+        //window.alert("C1Output = "+C1OutputTxt);
+        if (flag2 === true) {
+            C2OutputTxt = attach2Output + C2OutputTxt;
+        }else if (flag2 !== true){
+            C2OutputTxt = "";
+        }
+        if (flag3 === true) {
+            C3OutputTxt = attach3Output + C3OutputTxt;
+        }else if (flag3 !== true){
+            C3OutputTxt = "";
+        }
+
+        //Is value within range
+        
+        if (SPValue < MinAV() || SPValue > MaxAV()){
+            ValueOutput = " \nEV £"+SPValue+" not justified. \nMV £   within range and justified";
+        }else{
+        ValueOutput = "\nMV £"+SPValue+"   within range and justified";
+        }
+	
+        if(mundic.checked === true ){
+            mundicTxt = "\nValuation assumes satisfactory Mining and Mundic reports.\n ";
+        }else{
+            mundicTxt = "\nValuation assumes satisfactory Mining reports.\n ";
+        }
+        
+        /* select first line text based on input from Physical inspection or remote    */
+        
+        if(MVBox1.checked === true){
+            firstLineTxt = ""+MVTypeTxt;
+        }
+        if(RVBox2.checked === true){
+            firstLineTxt = ""+RVTypeTxt;
+        }
+        
+        /* Concatonate all lines together for outout*/
+        
+	outputTxt = firstLineTxt+agentoutputTxt+ DesTxt+mixedTxt+secondLineTxt+"\nC1 - "+C1OutputTxt+C1OverTxt+" - AV1 = £"+Av1Txt+",\n\nC2 - "+C2OutputTxt+C2OverTxt+" - AV2 = £"+Av2Txt+",\n\nC3 - "+C3OutputTxt+C3OverTxt+" - AV3 = £"+Av3Txt+ ",  \n\nVal Range = £"+ MinAV()+" to £"+MaxAV()+ValueOutput+mundicTxt+rentalTxt;
+	document.getElementById("outputtxtresult").value = outputTxt;
+        
+        
+        /* Get the text field */
+        var copyText = document.getElementById("outputtxtresult");
+
+        /* Select the text field */
+        copyText.select();
+        
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+	
+}
+
+function AttachChk(x,y){
+    window.alert("SP" + SP);
+    if (argument[0]<argument[1])
+    {attachOutput = "Lesser detachment ";
+    }
+    if (argument[0]>argument[1])
+    {attachOutput = "Greater detachment ";
+    }
+   
+    return attachOutput;
+    
+}
+
+function displayDate()
+{
+    today=new Date();
+    var month,day,year;
+    year=today.getFullYear();
+    month=today.getMonth();
+    date=today.getDate();
+    if((month-6)<=0);
+    year=today.getFullYear()-1;
+    var backdate = new Date(year,month-6,date);
+    return backdate;
+}
+function MinAV(){
+	var Av1Txt = parseInt(document.getElementById("Av1").value, 10);
+	var Av2Txt = parseInt(document.getElementById("Av2").value, 10);
+	var Av3Txt = parseInt(document.getElementById("Av3").value, 10);
+	var MinLevel;
+	
+	
+	if (Av1Txt <= Av2Txt && Av1Txt<=Av3Txt){MinLevel = Av1Txt;}
+	if (Av2Txt <= Av1Txt && Av2Txt<=Av3Txt){MinLevel = Av2Txt;}
+	if (Av3Txt <= Av1Txt && Av3Txt<=Av2Txt){MinLevel = Av3Txt;}
+	
+	return MinLevel;
+}
+
+function MaxAV(){
+	var Av1Txt = parseInt(document.getElementById("Av1").value, 10);
+	var Av2Txt = parseInt(document.getElementById("Av2").value, 10);
+	var Av3Txt = parseInt(document.getElementById("Av3").value, 10);
+	var MaxLevel;
+	
+	
+	if (Av1Txt >= Av2Txt && Av1Txt>=Av3Txt){MaxLevel = Av1Txt;}
+	if (Av2Txt >= Av1Txt && Av2Txt>=Av3Txt){MaxLevel = Av2Txt;}
+	if (Av3Txt >= Av1Txt && Av3Txt>=Av2Txt){MaxLevel = Av3Txt;}
+	
+	return MaxLevel;
+}
+
+function areaCalc(){
+
+	
+	var areaBox = document.getElementById("area1").value;
+	var area10PCLow, area10PCHigh, area20pcLow, area20pcHigh, lowRange, highRange;
+	lowRange = ((areaBox/100)*10);
+	highRange = ((areaBox/100)*20);
+	
+	area10PCLow = areaBox - lowRange;
+	area10PCHigh = parseFloat(areaBox) + parseFloat(lowRange);
+	area20PCLow = areaBox - highRange;
+	area20PCHigh = parseFloat(areaBox) + parseFloat(highRange);
+
+	
+	outputTxt = "+/-10%: "+area10PCLow+ " "+area10PCHigh+"\n"+"+/-20%: "+area20PCLow+ "  "+area20PCHigh;
+	
+	window.alert(outputTxt);
+}
+
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function myCompFunction() {
+
+}
+
+function myClearFunction(){
+    
+    // clear site notes tab of entry so can be reused
+    document.getElementById("tenure1").checked = false;
+    document.getElementById("tenure2").checked = false;
+    document.getElementById('tenure3').value = "";
+    document.getElementById('floor1').value = "";
+    document.getElementById("floor2").checked = false;
+    document.getElementById("floor3").checked = false;
+    document.getElementById("floor4").checked = false;
+    document.getElementById("floor5").checked = false;
+    document.getElementById('built1').value = "";
+    document.getElementById('priceName').value = "";
+    document.getElementById("priceHMLR").checked = false;
+    document.getElementById("myCheck1").checked = false;
+    document.getElementById("myCheck2").checked = false;
+    document.getElementById("myCheck3").checked = false;
+    document.getElementById("myCheck4").checked = false;
+    document.getElementById("conservatory").checked = false;
+    document.getElementById('acresInput').value = "";
+    document.getElementById("xla").checked = false;
+    document.getElementById("txtresult").value="";
+    
+    
+}
+
+function myFunction() {
+
+  var outputTxt = "";
+  var tenureBox1 = document.getElementById("tenure1");
+  var tenureBox2 = document.getElementById("tenure2");
+  var tenureBox3 = document.getElementById("tenure3").value;
+  
+  var floorBox1 = document.getElementById("floor1").value;
+  var floorBox2 = document.getElementById("floor2");
+  var floorBox3 = document.getElementById("floor3");
+  var floorBox4 = document.getElementById("floor4");
+  var floorBox5 = document.getElementById("floor5");
+  var floorInt = parseInt(floorBox1, 10);
+  var floor10;
+  var floor15;
+  
+  var builtBox1 = document.getElementById("built1").value;
+  
+  
+  var priceName1 = document.getElementById("priceName").value;
+  var priceHMLRBox1 = document.getElementById("priceHMLR");
+  
+  var checkBox1 = document.getElementById("myCheck1");
+  var checkBox2 = document.getElementById("myCheck2");
+  var checkBox3 = document.getElementById("myCheck3");
+  var checkBox4 = document.getElementById("myCheck4");
+  
+  var checkBox5 = document.getElementById('conservatory');
+  
+  var acres = document.getElementById("acresInput").value;
+  var checkBox6 = document.getElementById('xla');
+  
+  
+  
+  
+    if (tenureBox1.checked === true){
+    outputTxt = outputTxt.concat("FH -  ");
+  }
+    if (tenureBox2.checked === true){
+	 outputTxt = outputTxt.concat("LH - ");
+  }
+    if (tenureBox3 !== ""){ 
+	outputTxt = outputTxt.concat(tenureBox3,"  years ULT data from ****- ");
+  }
+    if (floorBox1 !== ""){
+    outputTxt = outputTxt.concat(floorBox1);
+  }
+    if (floorBox2.checked === true){
+	outputTxt = outputTxt.concat("m2 data from EPC (GIA Assumed) ");
+  }
+      if (floorBox3.checked === true){
+        floor10 = Math.round(floorInt * 1.1);
+	outputTxt = outputTxt.concat("m2 data from EPC (GIA Assumed) - adjusted to GEA = "+floor10+"m2 - ");
+  }
+      if (floorBox4.checked === true){
+          
+        floor15 = Math.round(floorInt * 1.15);
+	outputTxt = outputTxt.concat("m2 data from EPC (GIA Assumed) - - adjusted to GEA = "+floor15+"m2 - ");
+  }
+    if (floorBox5.checked === true){
+	outputTxt = outputTxt.concat("m2 from Floorplan GEA Assumed - ");
+  }
+
+    if (builtBox1 !== ""){
+	outputTxt = outputTxt.concat("Built circa: ",builtBox1," - ");
+  }
+  
+    if (priceName1 !== ""){
+	outputTxt = outputTxt.concat( "Price confirmed by ",priceName1," at agents. ");
+  }
+  
+  	if (priceHMLRBox1.checked ===true){
+	outputTxt = outputTxt.concat(" Price confirmed by HMLR. ");
+	}
+ 
+  if (checkBox1.checked === true){
+    outputTxt = outputTxt.concat("No Parking, ");
+  }
+    if (checkBox2.checked === true){
+    outputTxt = outputTxt.concat("Parking Space, ");
+  }
+    if (checkBox3.checked === true){
+    outputTxt = outputTxt.concat("Single Garage, ");
+  }
+    if (checkBox4.checked === true){
+    outputTxt = outputTxt.concat("Double Garage, ");
+  }
+  
+    if (checkBox5.checked === true){
+    outputTxt = outputTxt.concat("Conservatory, ");
+  }
+    if (acres !== ""){
+	outputTxt = outputTxt.concat( " ",acres, " acres of land. ");
+  }
+    if (checkBox6.checked === true){
+    outputTxt = outputTxt.concat("Ex LA, ");
+  } 
+  	document.getElementById("txtresult").value = outputTxt;
+        /* Get the text field */
+        var copyText = document.getElementById("txtresult");
+
+        /* Select the text field */
+        copyText.select();
+        //copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+  
+        
+ 
+	
+	
+	
+	
+	
+   
+}
+</script>
+
+</body>
+</html>
