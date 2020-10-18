@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang=”en-gb”>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Name of your awesome camera app -->
+<title>Camera App</title> 
+<!-- Link to your main style sheet-->
+<link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<!-- Reference to your JavaScript file -->
+<script src="app.js"></script> 
+
+<!-- Camera -->
+<main id="camera">
+    <!-- Camera sensor 
+    <canvas id="camera--sensor"></canvas>
+    <!-- Camera view 
+    <video id="camera--view" autoplay playsinline></video>
+    <!-- Camera output 
+    <img src="//:0" alt="" id="camera--output">
+    
+        <!-- Camera trigger 
+    <button id="camera--trigger">Take a picture</button>-->
+    
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Snap Photo</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    
+test
+</main>
+
+<script>
+    var video = document.getElementById('video');
+    var videoConstraint = { video: true, facingMode: [{exact:"environment"}] };
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    
+    navigator.mediaDevices.getUserMedia({ videoConstraint }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 640, 480);
+});
+</script>
+</body>
+</html>
