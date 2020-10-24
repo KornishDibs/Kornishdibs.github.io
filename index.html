@@ -34,8 +34,7 @@ test
 
 <script>
     var video = document.getElementById('video');
-    var videoConstraint = { video: true, facingMode: [{exact:"environment"}] };
-
+    var videoConstraint = video: { facingMode: { exact: "environment" } } ,
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
