@@ -34,19 +34,41 @@ test
 
 <script>
     var video = document.getElementById('video');
-    var videoConstraint = video: { facingMode: { exact: "environment" } } ,
-// Get access to the camera!
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-	//{ facingMode:"environment"}
-    
-    navigator.mediaDevices.getUserMedia(video: true ).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
-    });
-}
+    var videoConstraint = { 
+		video: true, 
+		facingMode: [{exact:"environment"}] 
+	};
 
+	// Get access to the camera!
+//	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+//		// Not adding `{ audio: true }` since we only want video now
+//
+//		navigator.mediaDevices.getUserMedia({ videoConstraint }).then(function(stream) {
+//			//video.src = window.URL.createObjectURL(stream);
+//			video.srcObject = stream;
+//			video.play();
+//		});
+//	}
+
+navigator.mediaDevices.getUserMedia(videoConstraint).then(function success(stream) {
+    /* do stuff */
+}).catch(function(err) {
+    //log to console first 
+    console.log(err); /* handle the error */
+    if (err.name == "NotFoundError" || err.name == "DevicesNotFoundError") {
+        //required track is missing 
+    } else if (err.name == "NotReadableError" || err.name == "TrackStartError") {
+        //webcam or mic are already in use 
+    } else if (err.name == "OverconstrainedError" || err.name == "ConstraintNotSatisfiedError") {
+        //constraints can not be satisfied by avb. devices 
+    } else if (err.name == "NotAllowedError" || err.name == "PermissionDeniedError") {
+        //permission denied in browser 
+    } else if (err.name == "TypeError" || err.name == "TypeError") {
+        //empty constraints object 
+    } else {
+        //other errors 
+    }
+});
 // Elements for taking the snapshot
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
