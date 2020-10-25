@@ -24,7 +24,8 @@
     
         <!-- Camera trigger 
     <button id="camera--trigger">Take a picture</button>-->
-    <div id="errlog">Error here v1.1: </div>
+    <div id="errlog">Error here v1.2: </div>
+	<div id="deviceNames">Devices:</div>
     <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">Snap Photo</button>
     <canvas id="canvas" width="640" height="480"></canvas>
@@ -35,10 +36,8 @@ test
 <script>
     var video = document.getElementById('video');
     var videoConstraint = { 
-		//video: true, 
-		//facingMode: [{exact:"environment"}] 
-	    video:
-	    facingMode: [{exact:"environment"}] 
+		video: true, 
+		facingMode: [{exact:"environment"}] 
 	};
 
 	// Get access to the camera!
@@ -53,8 +52,7 @@ test
 //	}
 
 navigator.mediaDevices.getUserMedia(videoConstraint).then(function success(stream) {
-			video.srcObject = stream;
-			video.play();
+    /* do stuff */
 }).catch(function(err) {
     //log to console first 
     console.log(err); /* handle the error */
@@ -72,6 +70,21 @@ navigator.mediaDevices.getUserMedia(videoConstraint).then(function success(strea
         //other errors 
     }
 	document.getElementById('errlog').innerHTML += 'error was: '+err.name;
+});
+	
+// List cameras and microphones.
+
+navigator.mediaDevices.enumerateDevices()
+.then(function(devices) {
+  devices.forEach(function(device) {
+	document.getElementById('deviceNames').innerHTML += device.kind + ": " + device.label +
+                " id = " + device.deviceId;
+    //console.log(device.kind + ": " + device.label +
+     //           " id = " + device.deviceId);
+  });
+})
+.catch(function(err) {
+  console.log(err.name + ": " + err.message);
 });
 // Elements for taking the snapshot
 var canvas = document.getElementById('canvas');
