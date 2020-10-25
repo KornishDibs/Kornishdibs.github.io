@@ -52,7 +52,8 @@ test
 //	}
 
 navigator.mediaDevices.getUserMedia(videoConstraint).then(function success(stream) {
-    /* do stuff */
+			video.srcObject = stream;
+			video.play();
 }).catch(function(err) {
     //log to console first 
     console.log(err); /* handle the error */
