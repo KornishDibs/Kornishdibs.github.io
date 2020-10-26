@@ -35,9 +35,10 @@ test
 
 <script>
     var video = document.getElementById('video');
-    var videoConstraint = { 
-		video: true, 
-		facingMode: [{exact:"environment"}] 
+   var videoConstraint = { 
+		//video: true, 
+		//facingMode: [{exact:"environment"}] 
+		video: {deviceId: 0}
 	};
 
 	// Get access to the camera!
