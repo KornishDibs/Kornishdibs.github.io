@@ -143,13 +143,14 @@ and open the template in the editor.
 			<img class="screenshot-image d-none" alt="">
 
 			<div class="controls">
-				<button class="btn btn-danger play" title="Play"><i data-feather="play-circle"></i></button>
+				<button id="snap">Snap Photo</button>
+				<!-- <button class="btn btn-danger play" title="Play"><i data-feather="play-circle"></i></button>
 				<button class="btn btn-info pause d-none" title="Pause"><i data-feather="pause"></i></button>
-				<button class="btn btn-outline-success screenshot d-none" title="ScreenShot"><i data-feather="image"></i></button>
+				<button class="btn btn-outline-success screenshot d-none" title="ScreenShot"><i data-feather="image"></i></button> -->
 			</div>
 		</div>
 		<script>
-			feather.replace();
+			//feather.replace();
 
 			const controls = document.querySelector('.controls');
 			const cameraOptions = document.querySelector('.video-options>select');
