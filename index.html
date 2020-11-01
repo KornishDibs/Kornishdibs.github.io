@@ -24,13 +24,12 @@
     
         <!-- Camera trigger 
     <button id="camera--trigger">Take a picture</button>-->
-	<div id="errlog">Error here v1.03</div>
+	<div id="errlog">Error here v1.05</div>
 	<div id="deviceNames">Devices:</div>
     <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">Snap Photo</button>
     <canvas id="canvas" width="640" height="480"></canvas>
-    
-test
+   
 </main>
 
 <script>
@@ -39,14 +38,14 @@ test
 		//video: true, 
 		//facingMode: [{exact:"environment"}] 
 		video: true,
-	    	facingMode:{exact:'user'}
+	    	facingMode:{exact:'environment'}
 	    	
 	};
 
 	// Get access to the camera!
 	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		// Not adding `{ audio: true }` since we only want video now
-
+		document.getElementById('errlog').innerHTML += '. Camera stream OK : ';
 		navigator.mediaDevices.getUserMedia({ videoConstraint }).then(function(stream) {
 			//video.src = window.URL.createObjectURL(stream);
 			video.srcObject = stream;
