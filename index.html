@@ -74,6 +74,11 @@ navigator.mediaDevices.getUserMedia(videoConstraint).then(function success(strea
 	document.getElementById('errlog').innerHTML += 'error was: '+err.name;
 });
 	
+	let supports = navigator.mediaDevices.getSupportedConstraints();
+if( supports['facingMode'] === true ) {
+  document.getElementById('errlog').innerHTML += '. Facing Mode Supported : ';
+}
+	
 // List cameras and microphones.
 
 navigator.mediaDevices.enumerateDevices()
