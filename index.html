@@ -24,7 +24,7 @@
     
         <!-- Camera trigger 
     <button id="camera--trigger">Take a picture</button>-->
-	<div id="errlog">Error here v1.12</div>
+	<div id="errlog">Error here v1.13</div>
 	<div id="deviceNames">Devices:</div>
 		<ul id="constraintList">List
 		
@@ -95,7 +95,7 @@ navigator.mediaDevices.enumerateDevices()
                 ". Device id = " + device.deviceId;
     //console.log(device.kind + ": " + device.label +
      //           " id = " + device.deviceId);
-	  if (device.label === "camera2 1, facing front"){
+	  if (device.label === "camera2 0, facing back"){
 	  	deviceIdVar = device.deviceId;
 		  document.getElementById('errlog').innerHTML +=  '. Device Id Var = ' + deviceIdVar ;
 	  }
