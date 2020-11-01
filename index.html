@@ -24,7 +24,7 @@
     
         <!-- Camera trigger 
     <button id="camera--trigger">Take a picture</button>-->
-	<div id="errlog">Error here v1.10</div>
+	<div id="errlog">Error here v1.11</div>
 	<div id="deviceNames">Devices:</div>
 		<ul id="constraintList">List
 		
@@ -36,6 +36,7 @@
 </main>
 
 <script>
+	var deviceIdVar;	
     var video = document.getElementById('video');
     var videoConstraint = { 
 		//video: true, 
@@ -45,7 +46,7 @@
 	    	
 	};
 
-		let constraintList = document.getElementById("constraintList");
+	let constraintList = document.getElementById("constraintList");
 	let supportedConstraints = navigator.mediaDevices.getSupportedConstraints();
 
 	for (let constraint in supportedConstraints) {
@@ -57,17 +58,7 @@
 	  }
 	}
 
-	// Get access to the camera!
-	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-		// Not adding `{ audio: true }` since we only want video now
-		document.getElementById('errlog').innerHTML += '. Camera stream OK : ';
-		navigator.mediaDevices.getUserMedia({ video: true,
-	    	facingMode:{exact:'environment' }}).then(function(stream) {
-			//video.src = window.URL.createObjectURL(stream);
-			video.srcObject = stream;
-			video.play();
-		});
-	}
+
 
 navigator.mediaDevices.getUserMedia(videoConstraint).then(function success(stream) {
     /* do stuff */
@@ -104,11 +95,26 @@ navigator.mediaDevices.enumerateDevices()
                 ". Device id = " + device.deviceId;
     //console.log(device.kind + ": " + device.label +
      //           " id = " + device.deviceId);
+	  if (device.label === "camera2 0, facing back"){
+	  	deviceIdVar = device.deviceId;
+	  }
   });
 })
 .catch(function(err) {
   console.log(err.name + ": " + err.message);
 });
+
+	// Get access to the camera!
+	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+		// Not adding `{ audio: true }` since we only want video now
+		document.getElementById('errlog').innerHTML += '. Camera stream OK : ';
+		navigator.mediaDevices.getUserMedia({ video: true,
+	    	deviceId:deviceIdVar}).then(function(stream) {
+			//video.src = window.URL.createObjectURL(stream);
+			video.srcObject = stream;
+			video.play();
+		});
+	}
 
 // Elements for taking the snapshot
 var canvas = document.getElementById('canvas');
