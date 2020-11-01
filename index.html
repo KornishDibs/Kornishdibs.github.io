@@ -78,8 +78,8 @@ navigator.mediaDevices.getUserMedia(videoConstraint).then(function success(strea
 navigator.mediaDevices.enumerateDevices()
 .then(function(devices) {
   devices.forEach(function(device) {
-	document.getElementById('deviceNames').innerHTML += device.kind + ": " + device.label +
-                " id = " + device.deviceId;
+	document.getElementById('deviceNames').innerHTML += "Device Kin" + device.kind + ".     Device Label = " + device.label +
+                ". Device id = " + device.deviceId;
     //console.log(device.kind + ": " + device.label +
      //           " id = " + device.deviceId);
   });
