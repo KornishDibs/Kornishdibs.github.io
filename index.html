@@ -24,8 +24,11 @@
     
         <!-- Camera trigger 
     <button id="camera--trigger">Take a picture</button>-->
-	<div id="errlog">Error here v1.09</div>
+	<div id="errlog">Error here v1.10</div>
 	<div id="deviceNames">Devices:</div>
+		<ul id="constraintList">List
+		
+	</ul>
     <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">Snap Photo</button>
     <canvas id="canvas" width="640" height="480"></canvas>
@@ -42,12 +45,24 @@
 	    	
 	};
 
+		let constraintList = document.getElementById("constraintList");
+	let supportedConstraints = navigator.mediaDevices.getSupportedConstraints();
+
+	for (let constraint in supportedConstraints) {
+	  if (supportedConstraints.hasOwnProperty(constraint)) {
+		let elem = document.createElement("li");
+
+		elem.innerHTML = "<code>" + constraint + "</code>";
+		constraintList.appendChild(elem);
+	  }
+	}
+
 	// Get access to the camera!
 	if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		// Not adding `{ audio: true }` since we only want video now
 		document.getElementById('errlog').innerHTML += '. Camera stream OK : ';
 		navigator.mediaDevices.getUserMedia({ video: true,
-	    	device.label: 'camera2 1, facing back'}).then(function(stream) {
+	    	facingMode:{exact:'environment' }}).then(function(stream) {
 			//video.src = window.URL.createObjectURL(stream);
 			video.srcObject = stream;
 			video.play();
