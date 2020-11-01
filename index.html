@@ -24,7 +24,7 @@
     
         <!-- Camera trigger 
     <button id="camera--trigger">Take a picture</button>-->
-	<div id="errlog">Error here v1.06</div>
+	<div id="errlog">Error here v1.07</div>
 	<div id="deviceNames">Devices:</div>
     <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">Snap Photo</button>
@@ -47,7 +47,7 @@
 		// Not adding `{ audio: true }` since we only want video now
 		document.getElementById('errlog').innerHTML += '. Camera stream OK : ';
 		navigator.mediaDevices.getUserMedia({ video: true,
-	    	facingMode:{exact:'user' }).then(function(stream) {
+	    	facingMode:{exact:'user' }}).then(function(stream) {
 			//video.src = window.URL.createObjectURL(stream);
 			video.srcObject = stream;
 			video.play();
